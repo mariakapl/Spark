@@ -1,9 +1,25 @@
 <ion-view view-title="My medicines">
   <ion-content class="padding">
 	<ion-list>
-		<ion-item ng-repeat="med in meds.all()">
-			{{med.name}}
+		<ion-item class="item item-divider item-calm">
+			<div class="row">
+				<div class="col">Name</div>
+				<div class="col">Expiration Date</div>
+			</div>
+		</ion-item>
+		<ion-item class="item" collection-repeat="med in meds.all()" item-width="100%">
+			<div class="row">
+				<div class="col">{{med.name}}</div>
+				<div class="col">{{med.exp}}</div>
+			</div>
+			<ion-option-button class="button-assertive" ng-click="remove(med)">
+				Delete
+			</ion-option-button>
+			<ion-option-button class="button-balanced" ng-click="donate(med)">
+				Donate
+			</ion-option-button>
 		</ion-item>
 	</ion-list>
   </ion-content>
 </ion-view>
+

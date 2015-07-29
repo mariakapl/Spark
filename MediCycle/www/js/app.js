@@ -64,7 +64,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-dash': {
           templateUrl: 'templates/tab-donation.html',
-    //      controller: 'MedicineCtrl'
+          controller: 'DonationCtrl'
         }
       }
     })

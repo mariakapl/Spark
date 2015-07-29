@@ -17,6 +17,19 @@ angular.module('starter.controllers', [])
 		
 })
 
-.controller('MedicineCtrl', function($scope, Medicines){
+.controller('MedicineCtrl', function($scope, Medicines, Donations){
 	$scope.meds = Medicines;
+	$scope.remove = function(med){
+		Medicines.remove(med);
+	};
+	$scope.donate = function(med){
+		Donations.add(med);
+	};
+})
+
+.controller('DonationCtrl', function($scope, Medicines, Donations){
+	$scope.meds = Donations;
+		$scope.remove = function(med){
+		Donations.remove(med);
+	};
 });

@@ -7,7 +7,8 @@ angular.module('starter.services', [])
   var meds = [{
     id: 0,
     name: 'Coldex',
-    exp: '1/1/1000'
+    exp: new Date(2000,1,1),
+	expired: false
   }];
   return {
     all: function() {
@@ -26,6 +27,14 @@ angular.module('starter.services', [])
     },
 	add: function(med){
 		meds.push(med);
+	},
+	checkDates: function(){
+		var now = (new Date());
+		for(var i = 0; i < meds.length ; i++){
+			if(now < meds[i].exp){
+				meds[i].expired = true;
+			}
+		}
 	}
   };
 })
@@ -34,7 +43,7 @@ angular.module('starter.services', [])
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var meds = [{}];
+  var meds = [];
   return {
     all: function() {
       return meds;
@@ -52,6 +61,14 @@ angular.module('starter.services', [])
     },
 	add: function(med){
 		meds.push(med);
+	},
+	checkDates: function(){
+		var now = (new Date());
+		for(var i = 0; i < meds.length ; i++){
+			if(now < meds[i].exp){
+				meds[i].expired = true;
+			}
+		}
 	}
   };
 });

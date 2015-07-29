@@ -48,14 +48,33 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'DashCtrl'
       }
     }
-  })
-
-  .state('tab.chats', {
-      url: '/chats',
+  })  .state('tab.medicine', {
+      url: '/medicinelist',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-dash': {
+          templateUrl: 'templates/tab-medicine.html',
+          controller: 'MedicineCtrl'
+        }
+      }
+    })
+  
+  
+    .state('tab.donation', {
+      url: '/donationlist',
+      views: {
+        'tab-dash': {
+          templateUrl: 'templates/tab-donation.html',
+    //      controller: 'MedicineCtrl'
+        }
+      }
+    })
+	
+  .state('tab.info', {
+      url: '/info',
+      views: {
+        'tab-info': {
+          templateUrl: 'templates/tab-info.html',
+      //    controller: 'MedicineCtrl'
         }
       }
     })
@@ -64,20 +83,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-chats': {
           templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+          //controller: 'ChatDetailCtrl'
         }
       }
     })
-
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
-      }
-    }
-  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
